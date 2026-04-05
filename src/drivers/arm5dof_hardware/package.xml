@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="3">
+  <!--  name 标签：和 CMakeLists.txt 中的 project 名必须一样 -->
+  <name>arm5dof_hardware</name>
+  <version>0.0.0</version>
+  <description>Fake system node for joint state stream</description>
+  <maintainer email="1258654033@qq.com">xwt</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

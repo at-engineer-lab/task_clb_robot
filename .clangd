@@ -1,0 +1,22 @@
+# .clangd 配置文件（ROS2 Humble专用）
+CompileFlags:
+  # 添加ROS2的全局头文件路径（根据你的ROS安装路径调整）
+  Add:
+    - -I/opt/ros/humble/include
+    - -I${workspaceFolder}/install/include
+    - -std=c++17  # ROS2 Humble要求的C++标准
+    - -DRUNNING_ON_ROS2  # ROS2专属宏定义
+  # 排除不必要的路径（可选，减少索引耗时）
+  Remove:
+    - -std=c++11
+    - -std=c++14
+
+# 优化补全体验
+Completion:
+  AddParentheses: Always  # 补全函数时自动加括号
+  DetailedLabel: true     # 补全提示显示详细信息
+
+# 优化索引性能
+Index:
+  Background: Build       # 后台索引，不卡顿
+  Threads: 4              # 索引线程数（和CPU核心匹配）

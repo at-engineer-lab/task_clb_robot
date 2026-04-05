@@ -1,0 +1,29 @@
+#有关“规划器”的相关参数
+default_planning_pipeline: ompl
+#明确只使用“ompl”，不开启其他的规划器管道，防止浪费资源
+planning_pipelines: [ompl]   # ← 很关键，明确只用 ompl
+ompl:
+  #规划插件
+  planning_plugin: ompl_interface/OMPLPlanner
+  #请求适配器
+  request_adapters: >-  
+    default_planner_request_adapters/AddTimeOptimalParameterization 
+    default_planner_request_adapters/FixWorkspaceBounds
+    default_planner_request_adapters/FixStartStateBounds
+    default_planner_request_adapters/FixStartStateCollision
+    default_planner_request_adapters/FixStartStatePathConstraints
+  #起始状态边界误差最大值
+  start_state_max_bounds_error: 0.1
+
+planner_configs:
+  #规划器配置名称（可自定义）
+  RRTConnectkConfigDefault:
+    #规划器种类
+    type: geometric::RRTConnect
+    #规划算法的步长（通用合理值，“可复用”）
+    range: 0.2
+
+group_planner_configs:
+  arm5dof_arm:  #规划组的名称要保持一致
+    #让规划组使用上面定义的规划器
+    - RRTConnectkConfigDefault

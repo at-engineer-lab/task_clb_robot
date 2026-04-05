@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="arm5dof_arm_moveit_ikfast_plugin">
+  <class name="arm5dof_arm/IKFastKinematicsPlugin" type="arm5dof_arm::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics of arm5dof arm</description>
+  </class>
+</library>
